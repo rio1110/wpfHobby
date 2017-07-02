@@ -2,9 +2,11 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:model="clr-namespace:AppRoot.Models"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:behavior="clr-namespace:Behavior;assembly=Behavior"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Title="MyApp" Height="540" Width="960">
@@ -15,8 +17,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <!-- TreeView -->
@@ -26,6 +28,9 @@
                     <TextBlock Text="{Binding Name}" />
                 </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
+            <i:Interaction.Behaviors>
+                <behavior:BindableSelectedItemBehavior SelectedItem="{Binding SelectedItem,Mode=TwoWay}" />
+            </i:Interaction.Behaviors>
         </TreeView>
 
 
@@ -33,7 +38,7 @@
         <Label Grid.Column="1" Name="TxtClock" HorizontalAlignment="Right" FontSize="22" />
         
         <!-- 画面 -->
-        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="MainRegion" />
+        <ContentControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="MainRegion" />
 
         <Button Grid.Column="1" Grid.Row="2" Content="画面遷移１" HorizontalAlignment="Right">
             <Button.ContentTemplate>

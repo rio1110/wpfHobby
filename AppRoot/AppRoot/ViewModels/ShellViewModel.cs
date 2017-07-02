@@ -1,6 +1,9 @@
 ﻿using AppRoot.Models;
+using AppRoot.Module.GoogleMap.Views;
 using Microsoft.Practices.Unity;
+using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,18 +17,34 @@ namespace AppRoot.ViewModels
 {
     class ShellViewModel : BindableBase
     {
-        private Category _category;
+        [Dependency]
+        public IRegionManager RegionManager { get; set; }
 
-        public Category _Category
+        private List<Category> category;
+
+        public List<Category> Category
         {
-            get { return this._category; }
-            set { this.SetProperty(ref this._category, value); }
+            get { return this.category; }
+            set { this.SetProperty(ref this.category, value); }
+        }
+
+        private object selectedItem;
+
+        public object SelectedItem
+        {
+            get { return this.selectedItem; }
+            set {
+                    if (this.SetProperty(ref this.selectedItem, value))
+                    {
+                        this.RegionManager.RequestNavigate("MainRegion", nameof(GoogleMapUC));
+                    };
+                }
         }
 
 
         public ShellViewModel()
         {
-            // TreeViewModelの作成
+            // TreeViewModelのリスト作成
             this.Category = new List<Category> {
                 new Category
                 {
@@ -45,14 +64,15 @@ namespace AppRoot.ViewModels
                     }
                 }
             };
+
+            this.GoogleMapCommand = new DelegateCommand<string>(x =>
+            {
+                this.RegionManager.RequestNavigate("MainRegion", nameof(GoogleMapUC), new NavigationParameters($"id ={x}"));
+            });
         }
 
-        private List<Category> category;
+        public DelegateCommand<string> GoogleMapCommand { get; }
 
-        public List<Category> Category
-        {
-            get { return this.category; }
-            set { this.SetProperty(ref this.category, value); }
-        }
+
     }
 }

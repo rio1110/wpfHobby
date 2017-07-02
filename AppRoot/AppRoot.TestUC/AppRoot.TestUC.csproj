@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5AEC9411-C049-4236-A51E-86E3AEBD422E}</ProjectGuid>
+    <ProjectGuid>{6D47FF23-5CC6-4ED1-B34A-C38E0E46277B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AppRoot</RootNamespace>
-    <AssemblyName>AppRoot</AssemblyName>
+    <RootNamespace>AppRoot.TestUC</RootNamespace>
+    <AssemblyName>AppRoot.TestUC</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -83,11 +83,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="Views\Shell.xaml.cs">
-      <DependentUpon>Shell.xaml</DependentUpon>
+    <Compile Include="SelectedUCModule.cs" />
+    <Compile Include="Views\SelectedUC.xaml.cs">
+      <DependentUpon>SelectedUC.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -118,24 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Shell.xaml">
+    <Page Include="Views\SelectedUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AppRoot.Module.GoogleMap\AppRoot.Module.GoogleMap.csproj">
-      <Project>{91ca0884-0c23-4140-a8ad-3369eca64f6e}</Project>
-      <Name>AppRoot.Module.GoogleMap</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AppRoot.TestUC\AppRoot.TestUC.csproj">
-      <Project>{6d47ff23-5cc6-4ed1-b34a-c38e0e46277b}</Project>
-      <Name>AppRoot.TestUC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Behavior\Behavior.csproj">
-      <Project>{a0c07f65-3e3e-4b38-9f4f-c428e790a749}</Project>
-      <Name>Behavior</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

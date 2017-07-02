@@ -1,7 +1,9 @@
 ﻿using AppRoot.Views;
+using AppRoot.Module.GoogleMap;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Unity;
+using System.Linq;
 using System.Windows;
 
 namespace AppRoot
@@ -23,7 +25,13 @@ namespace AppRoot
             base.ConfigureModuleCatalog();
 
             var catalog = (ModuleCatalog)this.ModuleCatalog;
-            //catalog.AddModule(typeof(SampleModule));
+            catalog.AddModule(typeof(Module.GoogleMap.GoogleMapModule));
+
+            //this.Container.RegisterTypes(
+            //  AllClasses.FromLoadedAssemblies()
+            //      .Where(x => x.Namespace.EndsWith(".Views")),
+            //  getFromTypes: _ => new[] { typeof(object) },
+            //  getName: WithName.TypeName);
         }
     }
 }
