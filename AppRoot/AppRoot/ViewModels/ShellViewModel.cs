@@ -1,4 +1,5 @@
 ﻿using AppRoot.Models;
+using AppRoot.Module.Calender.Views;
 using AppRoot.Module.GoogleMap.Views;
 using Microsoft.Practices.Unity;
 using Prism.Commands;
@@ -17,6 +18,16 @@ namespace AppRoot.ViewModels
 {
     class ShellViewModel : BindableBase
     {
+        private const string _webName = "Web関連";
+
+        private const string _googleMap = "Google Map";
+
+        private const string _calenderName = "カレンダー";
+
+        private const string _weeklyUnit = "１週間単位";
+
+        private const string _monthlyUnit = "１カ月単位";
+
         [Dependency]
         public IRegionManager RegionManager { get; set; }
 
@@ -34,10 +45,21 @@ namespace AppRoot.ViewModels
         {
             get { return this.selectedItem; }
             set {
-                    if (this.SetProperty(ref this.selectedItem, value))
+                     this.SetProperty(ref this.selectedItem, value);
+
+                string str = ((Category)this.SelectedItem).Name;
+
+                    switch (str)
                     {
-                        this.RegionManager.RequestNavigate("MainRegion", nameof(GoogleMapUC));
-                    };
+                        case _googleMap:
+                            this.RegionManager.RequestNavigate("MainRegion", nameof(GoogleMapUC));
+                            break;
+
+                        case _weeklyUnit:
+                        case _monthlyUnit:
+                            this.RegionManager.RequestNavigate("MainRegion", nameof(CalenderUC));
+                            break;
+                    }
                 }
         }
 
@@ -48,30 +70,24 @@ namespace AppRoot.ViewModels
             this.Category = new List<Category> {
                 new Category
                 {
-                    Name = "Web関連",
+                    Name = _webName,
                     Children = new List<Category>
                     {
-                        new Category {Name = "Google Map"}
+                        new Category {Name = _googleMap}
                     }
                 },
                  new Category
                 {
-                    Name = "カレンダー",
+                    Name = _calenderName,
                     Children = new List<Category>
                     {
-                        new Category { Name = "１週間単位" },
-                        new Category { Name = "１カ月単位" }
+                        new Category { Name = _weeklyUnit },
+                        new Category { Name = _monthlyUnit }
                     }
                 }
             };
 
-            this.GoogleMapCommand = new DelegateCommand<string>(x =>
-            {
-                this.RegionManager.RequestNavigate("MainRegion", nameof(GoogleMapUC), new NavigationParameters($"id ={x}"));
-            });
         }
-
-        public DelegateCommand<string> GoogleMapCommand { get; }
 
 
     }

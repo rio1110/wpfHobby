@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppRoot.Module.GoogleMap", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavior", "Behavior\Behavior.csproj", "{A0C07F65-3E3E-4B38-9F4F-C428E790A749}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppRoot.TestUC", "AppRoot.TestUC\AppRoot.TestUC.csproj", "{6D47FF23-5CC6-4ED1-B34A-C38E0E46277B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppRoot.Module.Calender", "AppRoot.Module.Calender\AppRoot.Module.Calender.csproj", "{7EADC81D-1BDA-4278-AAC6-0C3361845055}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{A0C07F65-3E3E-4B38-9F4F-C428E790A749}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C07F65-3E3E-4B38-9F4F-C428E790A749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C07F65-3E3E-4B38-9F4F-C428E790A749}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D47FF23-5CC6-4ED1-B34A-C38E0E46277B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D47FF23-5CC6-4ED1-B34A-C38E0E46277B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D47FF23-5CC6-4ED1-B34A-C38E0E46277B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D47FF23-5CC6-4ED1-B34A-C38E0E46277B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EADC81D-1BDA-4278-AAC6-0C3361845055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EADC81D-1BDA-4278-AAC6-0C3361845055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EADC81D-1BDA-4278-AAC6-0C3361845055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EADC81D-1BDA-4278-AAC6-0C3361845055}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5AEC9411-C049-4236-A51E-86E3AEBD422E}</ProjectGuid>
+    <ProjectGuid>{7EADC81D-1BDA-4278-AAC6-0C3361845055}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AppRoot</RootNamespace>
-    <AssemblyName>AppRoot</AssemblyName>
+    <RootNamespace>AppRoot.Module.Calender</RootNamespace>
+    <AssemblyName>AppRoot.Module.Calender</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -83,11 +83,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="Views\Shell.xaml.cs">
-      <DependentUpon>Shell.xaml</DependentUpon>
+    <Compile Include="CalenderModule.cs" />
+    <Compile Include="Views\CalenderUC.xaml.cs">
+      <DependentUpon>CalenderUC.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -118,24 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Shell.xaml">
+    <Page Include="Views\CalenderUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AppRoot.Module.Calender\AppRoot.Module.Calender.csproj">
-      <Project>{7eadc81d-1bda-4278-aac6-0c3361845055}</Project>
-      <Name>AppRoot.Module.Calender</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AppRoot.Module.GoogleMap\AppRoot.Module.GoogleMap.csproj">
-      <Project>{91ca0884-0c23-4140-a8ad-3369eca64f6e}</Project>
-      <Name>AppRoot.Module.GoogleMap</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Behavior\Behavior.csproj">
-      <Project>{a0c07f65-3e3e-4b38-9f4f-c428e790a749}</Project>
-      <Name>Behavior</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

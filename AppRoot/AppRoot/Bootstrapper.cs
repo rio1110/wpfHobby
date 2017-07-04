@@ -5,6 +5,8 @@ using Prism.Modularity;
 using Prism.Unity;
 using System.Linq;
 using System.Windows;
+using AppRoot.Module.Calender.Views;
+using AppRoot.Module.Calender;
 
 namespace AppRoot
 {
@@ -25,7 +27,8 @@ namespace AppRoot
             base.ConfigureModuleCatalog();
 
             var catalog = (ModuleCatalog)this.ModuleCatalog;
-            catalog.AddModule(typeof(Module.GoogleMap.GoogleMapModule));
+            catalog.AddModule(typeof(GoogleMapModule));
+            catalog.AddModule(typeof(CalenderModule));
 
             //this.Container.RegisterTypes(
             //  AllClasses.FromLoadedAssemblies()

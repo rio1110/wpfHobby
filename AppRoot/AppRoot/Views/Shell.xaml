@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- TreeView -->
-        <TreeView Name="treeView" BorderThickness="0" ItemsSource="{Binding Category}">
+        <TreeView Grid.Row="1" Name="treeView" BorderThickness="0" ItemsSource="{Binding Category}">
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate DataType="{x:Type model:Category}" ItemsSource="{Binding Children}">
                     <TextBlock Text="{Binding Name}" />
