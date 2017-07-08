@@ -10,6 +10,49 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Title="MyApp" Height="540" Width="960">
+    <Window.Resources>
+        <Style x:Key="ImageButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard >
+                                            <DoubleAnimation Storyboard.TargetName="normalBackgroundImage" Storyboard.TargetProperty="Opacity" Duration="0:0:0.0" To="1"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Image Name="normalBackgroundImage" Source="{TemplateBinding behavior:ChangeBackgroundImageBehavior.NormalBackgroundImage}" Opacity="0"/>
+                            <Image Name="pressedBackgroundImage" Source="{TemplateBinding behavior:ChangeBackgroundImageBehavior.PressedBackgroundImage}" Opacity="0"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="pressedBackgroundImage" Storyboard.TargetProperty="Opacity" Duration="0:0:0.0" To="1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="pressedBackgroundImage" Storyboard.TargetProperty="Opacity" Duration="0:0:0.0" To="0"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -40,14 +83,18 @@
         <!-- 画面 -->
         <ContentControl Grid.Row="1" Grid.Column="1" prism:RegionManager.RegionName="MainRegion" />
 
-        <Button Grid.Column="1" Grid.Row="2" Content="画面遷移１" HorizontalAlignment="Right">
-            <Button.ContentTemplate>
+        <Button Grid.Column="1" Grid.Row="2" Height="50" Width="120.75" HorizontalAlignment="Right" Style="{StaticResource ImageButton}"
+                behavior:ChangeBackgroundImageBehavior.NormalBackgroundImage="../Image/BeforeClick.jpg"
+                behavior:ChangeBackgroundImageBehavior.PressedBackgroundImage="../Image/AfterClick.jpg"/>
+
+        <!--
+                    <Button.ContentTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="1" Background="{Binding RelativeSource={RelativeSource FindAncestor ,AncestorType={x:Type Window}}, Path=Background}">
                         <TextBlock Text="画面遷移" />
                     </Border>
                 </DataTemplate>
             </Button.ContentTemplate>
-        </Button>
+        -->
     </Grid>
 </Window>

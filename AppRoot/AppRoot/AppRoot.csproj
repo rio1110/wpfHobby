@@ -136,6 +136,15 @@
       <Project>{a0c07f65-3e3e-4b38-9f4f-c428e790a749}</Project>
       <Name>Behavior</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Style\Style.csproj">
+      <Project>{9d77288b-fe7e-41c3-a3a4-62ee2a82c075}</Project>
+      <Name>Style</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\BeforeClick.jpg" />
+    <Resource Include="Image\AfterClick.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

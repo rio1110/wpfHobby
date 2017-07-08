@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Behavior", "Behavior\Behavi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppRoot.Module.Calender", "AppRoot.Module.Calender\AppRoot.Module.Calender.csproj", "{7EADC81D-1BDA-4278-AAC6-0C3361845055}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Style", "Style\Style.csproj", "{9D77288B-FE7E-41C3-A3A4-62EE2A82C075}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7EADC81D-1BDA-4278-AAC6-0C3361845055}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EADC81D-1BDA-4278-AAC6-0C3361845055}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EADC81D-1BDA-4278-AAC6-0C3361845055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D77288B-FE7E-41C3-A3A4-62EE2A82C075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D77288B-FE7E-41C3-A3A4-62EE2A82C075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D77288B-FE7E-41C3-A3A4-62EE2A82C075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D77288B-FE7E-41C3-A3A4-62EE2A82C075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
