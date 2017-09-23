@@ -20,12 +20,12 @@
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal">
                                         <Storyboard >
-                                            <DoubleAnimation Storyboard.TargetName="normalBackgroundImage" Storyboard.TargetProperty="Opacity" Duration="0:0:0.0" To="1"/>
+                                            <DoubleAnimation Storyboard.TargetName="normalBackgroundImage" Storyboard.TargetProperty="Opacity" Duration="0:0:0.0"/>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <Image Name="normalBackgroundImage" Source="{TemplateBinding behavior:ChangeBackgroundImageBehavior.NormalBackgroundImage}" Opacity="0"/>
+                            <Image Name="normalBackgroundImage" Source="{TemplateBinding behavior:ChangeBackgroundImageBehavior.NormalBackgroundImage}" Opacity="1"/>
                             <Image Name="pressedBackgroundImage" Source="{TemplateBinding behavior:ChangeBackgroundImageBehavior.PressedBackgroundImage}" Opacity="0"/>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
